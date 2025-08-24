@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Discord File Sharer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="header">
+      <h1>Discord File <span>Sharer</span></h1>
+      <p class="sub">Upload files via webhook → get instant CDN links.</p>
+    </header>
+
+    <main>
+      <section class="uploader" id="dropzone">
+        <div class="uploader__bg"></div>
+        <div class="uploader__content">
+          <input id="fileInput" type="file" multiple />
+          <p class="hint">Drag & drop files here or click to choose</p>
+          <button id="uploadBtn" class="btn">Upload</button>
+        </div>
+      </section>
+
+      <section class="options">
+        <label class="field">
+          <span>Message (optional):</span>
+          <input id="messageInput" type="text" placeholder="Say something…" />
+        </label>
+        <label class="field">
+          <span>Display name (optional):</span>
+          <input id="usernameInput" type="text" placeholder="CDN Sharer" />
+        </label>
+      </section>
+
+      <section class="results">
+        <h2>Results</h2>
+        <ul id="resultsList" class="results__list"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Disclaimer: The uploaded files go to a private discord server</small>
+    </footer>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
