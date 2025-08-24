@@ -1,0 +1,186 @@
+/* Base */
+:root{
+  --bg:#0b0a10;
+  --ink:#eae6f7;
+  --muted:#b9a9d9;
+  --pink:#ff4ecd;
+  --purple:#8a5cff;
+  --purple-deep:#5b2cff;
+  --glass: rgba(255,255,255,.06);
+  --accent: linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 80% 10%, rgba(255,78,205,.15), transparent 60%),
+    radial-gradient(1000px 500px at 10% 90%, rgba(138,92,255,.18), transparent 60%),
+    var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, sans-serif;
+}
+
+/* Layout wrapper */
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+/* Header */
+.header h1 {
+  font-size: 2.4rem;
+  letter-spacing: .5px;
+  margin: 0 0 6px;
+}
+.header h1 span {
+  background: var(--accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(138,92,255,.3), 0 0 22px rgba(255,78,205,.18);
+}
+.sub {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+/* Uploader card */
+.uploader {
+  position: relative;
+  border-radius: 18px;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(138,92,255,.22);
+  background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.06),
+    0 30px 80px rgba(91,44,255,.18),
+    0 8px 30px rgba(255,78,205,.12);
+}
+.uploader__bg {
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(600px 300px at 20% 0%, rgba(255,78,205,.15), transparent 60%),
+    radial-gradient(700px 350px at 90% 100%, rgba(138,92,255,.16), transparent 60%);
+  filter: blur(40px);
+  z-index: 0;
+}
+.uploader__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 12px;
+  place-items: center;
+}
+.uploader .hint {
+  color: var(--muted);
+  margin: 4px 0 8px;
+}
+
+/* Hidden input but keep it clickable (full-area trigger) */
+#fileInput {
+  appearance: none;
+  border: 1px dashed rgba(255,255,255,.2);
+  padding: 16px;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 12px;
+  background: var(--glass);
+  cursor: pointer;
+}
+#fileInput:hover {
+  border-color: rgba(255,78,205,.4);
+}
+
+/* Button */
+.btn {
+  padding: 12px 20px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  letter-spacing: .3px;
+  cursor: pointer;
+  transition: transform .04s ease, box-shadow .2s ease;
+  box-shadow: 0 10px 26px rgba(138,92,255,.35);
+}
+.btn:active { transform: translateY(1px) scale(.99); }
+
+/* Options row */
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 18px 0 10px;
+}
+@media (max-width: 680px) {
+  .options { grid-template-columns: 1fr; }
+}
+.field {
+  display: grid;
+  gap: 6px;
+  background: var(--glass);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  padding: 12px;
+}
+.field span { color: var(--muted); font-size: .9rem; }
+.field input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.25);
+  color: var(--ink);
+}
+
+/* Results */
+.results { margin-top: 24px; }
+.results h2 { margin: 0 0 10px; }
+.results__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+.result {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
+  border: 1px solid rgba(138,92,255,.2);
+  border-radius: 12px;
+  padding: 12px;
+}
+.result__url {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.copy {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.35);
+  color: var(--ink);
+  cursor: pointer;
+}
+.status {
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+/* Footer */
+.footer { margin-top: 26px; color: var(--muted); text-align: center; }
+.dragging {
+  outline: 2px dashed var(--pink);
+  outline-offset: 8px;
+  box-shadow: 0 0 0 3px rgba(255,78,205,.2) inset;
+}
